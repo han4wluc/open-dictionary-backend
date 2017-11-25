@@ -2,6 +2,12 @@ const express = require('express');
 const postgraphql = require('postgraphql').postgraphql;
 
 const app = express();
+app.use('/', routes);
 
-app.use(postgraphql('postgres://localhost:5432'));
-app.listen(3000);
+var port = 3000;
+var postGraphQLLink = 'postgres://localhost:5432';
+
+app.use(postgraphql(postGraphQLLink));
+app.listen(port, ()=>{
+  console.log('Port is up at: ',port);
+});
