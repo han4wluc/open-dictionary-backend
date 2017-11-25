@@ -7,7 +7,9 @@ const app = express();
 var port = 3000;
 var postGraphQLLink = 'postgresql://postgres:open-dictionary-open-dictionary@159.89.206.252:5432/postgres';
 
-app.use(postgraphql(postGraphQLLink));
+app.use(postgraphql(postGraphQLLink, "public", {
+  graphiql:true
+}));
 app.listen(port, ()=>{
   console.log('Port is up at: ',port);
 });
