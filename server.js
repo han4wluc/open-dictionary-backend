@@ -7,7 +7,8 @@ var port = 3000;
 var postGraphQLLink = `postgresql://postgres:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:5432/postgres`;
 
 app.use(postgraphql(postGraphQLLink, "public", {
-  graphiql:true
+  graphiql: true,
+  watchPg: true,
 }));
 
 app.listen(port, ()=>{
